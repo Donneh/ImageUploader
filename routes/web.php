@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [ImageController::class, 'index']);
-Route::get('/images', [ImageController::class, 'show']);
+Route::get('/', function () {
+    return view('images.index');
+});
+Route::get('/images', [ImageController::class, 'index']);
 Route::post('/upload', [ImageController::class, 'store']);
+Route::delete('/images', [ImageController::class, 'delete']);
